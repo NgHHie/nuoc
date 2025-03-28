@@ -1,5 +1,8 @@
 package com.example.model;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -16,7 +20,7 @@ public class HoaDon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String ngaylap;
+    private LocalDateTime ngaylap;
     private float tongsotien;
 
     @ManyToOne
@@ -31,53 +35,5 @@ public class HoaDon {
     @JoinColumn(name = "donghonuoc_id")
     private DongHoNuoc dongho;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getNgaylap() {
-		return ngaylap;
-	}
-
-	public void setNgaylap(String ngaylap) {
-		this.ngaylap = ngaylap;
-	}
-
-	public float getTongsotien() {
-		return tongsotien;
-	}
-
-	public void setTongsotien(float tongsotien) {
-		this.tongsotien = tongsotien;
-	}
-
-	public KhachHang getKhachhang() {
-		return khachhang;
-	}
-
-	public void setKhachhang(KhachHang khachhang) {
-		this.khachhang = khachhang;
-	}
-
-	public HopDong getHopdong() {
-		return hopdong;
-	}
-
-	public void setHopdong(HopDong hopdong) {
-		this.hopdong = hopdong;
-	}
-
-	public DongHoNuoc getDongho() {
-		return dongho;
-	}
-
-	public void setDongho(DongHoNuoc dongho) {
-		this.dongho = dongho;
-	}
-    
     
 }

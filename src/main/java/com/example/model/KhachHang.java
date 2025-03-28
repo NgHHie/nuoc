@@ -2,13 +2,15 @@ package com.example.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 @Data
+@ToString(exclude = {"canho", "hoadon"})
 public class KhachHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +27,4 @@ public class KhachHang {
     @OneToMany(mappedBy = "khachhang")
     @JsonIgnore
     private List<HoaDon> hoadon;
-
-	
 }
