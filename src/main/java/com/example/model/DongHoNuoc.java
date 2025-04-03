@@ -1,10 +1,12 @@
 package com.example.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
@@ -17,9 +19,8 @@ public class DongHoNuoc {
 
     private float chisocu;
     private float chisomoi;
-    private float tongtieuThu;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "canho_id")
     private CanHo canho;
 }
